@@ -1,0 +1,18 @@
+# Helm repo add and remove
+$ help repo lis
+$ help add repo bitnami https://charts.bitnami.com/bitnami
+$ helm repo list
+$ helm repo remove bitnami
+
+
+# Helm search application
+$ helm search mysql
+$ helm search nginx
+$ helm search nginx --version
+
+
+# Helm install application
+$ helm install mydb bitnami/mysql
+(note: it will show the details, how to access mysql server and other details)
+$ heml status mydb 
+(get the above note details)
