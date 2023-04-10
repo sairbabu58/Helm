@@ -53,6 +53,7 @@ $ helm upgrade myapp bitnami/myapp
 
 $ helm upgrade mydb bitnami/mysql --values values.yaml --dry-run
 $ helm upgrade mydb bitnami/mysql --dry-run
+$ helm upgrade mydb bitnami/mysql --force (it will delete the all delpoyment and pods and get the completely latest files and new pods)
 
 Validation :
 
