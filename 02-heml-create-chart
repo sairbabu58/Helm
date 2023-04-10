@@ -9,8 +9,18 @@ $ helm install firstapp firstchart (execute this command from current chart dire
 
 
 
-# Helm packaging 
+# Helm packaging (packaging the application. application.tgz)
 $ helm package firstchart
+$ helm packkage firstchart -d (--destination) /my-path/
+
+# Helm lint (code validation)
+$ helm lint firstchart 
+
+
+
+
+
+
 
 
 
