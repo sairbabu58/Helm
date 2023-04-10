@@ -16,3 +16,57 @@ $ helm install mydb bitnami/mysql
 (note: it will show the details, how to access mysql server and other details)
 $ heml status mydb 
 (get the above note details)
+$ helm install mydb bitnami/mysql -n namespace
+
+
+
+# Helm list and uninstall applications
+$ helm list 
+$ helm list -n namespace
+$ helm uninstall mydb
+$helm uninstall mydb -n namespace
+
+
+
+# Helm install with custom values
+$ helm install mydb bitnami/mysql --values /my-path/values.yaml
+
+before create values.yaml 
+$ vi values.yaml
+  auth:
+    rootPassword: "redhat"
+    
+    
+    
+# Helm repo update
+$ helm repo update 
+
+
+# Helm application update
+$ helm list
+$ helm list -n namespace
+$ helm status mydb (get the update command for update application)
+$ helm upgrade mydb bitnami/mysql --values values.yaml (for upgrade database application)
+$ helm upgrade myapp bitnami/myapp
+
+Validation :
+
+$ helm list 
+$ helm status myapp 
+(it will show the revision:2 \\ earlier the was revision: 1, now the is revision: 2 \\ using this revision we can rollout the application \\ revision data is available in side of secret on the same namespace)
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
