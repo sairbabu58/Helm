@@ -26,7 +26,7 @@ $ helm install mydb bitnami/mysql --values /my-path/values.yaml --dry-run
 $ helm list 
 $ helm list -n namespace
 $ helm uninstall mydb
-$helm uninstall mydb -n namespace
+$ helm uninstall mydb -n namespace
 
 
 
@@ -50,6 +50,9 @@ $ helm list -n namespace
 $ helm status mydb (get the update command for update application)
 $ helm upgrade mydb bitnami/mysql --values values.yaml (for upgrade database application)
 $ helm upgrade myapp bitnami/myapp
+
+$ helm upgrade mydb bitnami/mysql --values values.yaml --dry-run
+$ helm upgrade mydb bitnami/mysql --dry-run
 
 Validation :
 
