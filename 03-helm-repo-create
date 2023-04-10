@@ -1,0 +1,27 @@
+# Create your own helm repo and install the application
+
+> from github, create a repo 'helmrepo'
+> clone the url to your local machine
+$ git clone https://github.com/name/helmrepo
+$ cd helmrepo
+
+$ helm create demochart
+$ helm package demochart
+$ helm repo index .
+
+$ git add .
+$ git commit -m 'updated 1st chart'
+$ git push 
+
+> add additional configuration on gitrepo
+  > choose your helmrepo 
+  > setting 
+  > pages
+  > source (none to master)
+  > save
+  > get the helm new repo url (it will display over the screen)
+  
+  
+$ helm repoadd gitrepo <paste the above url>
+$ helm repo list
+$ helm install myapp gitrepo/helmrepo
