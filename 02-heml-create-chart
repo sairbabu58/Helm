@@ -1,1 +1,16 @@
+# create first Helm chart
+
+$ mkdir httpd
+$ helm ls
+$ helm create firstchart (default 'firstchart' is nginx)
+$ ls 
+
+$ helm install firstapp firstchart (execute this command from current chart directory)
+
+
+
+# Helm packaging 
+$ helm package firstchart
+
+
 
