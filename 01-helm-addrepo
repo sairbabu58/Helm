@@ -92,13 +92,23 @@ $ helm list
 $ helm history mydb
 
 $ helm history mydb (get the version name 1 or 2 or 3)
-$ helm rollout mydb 2
-$ helm rollout mydb 1
+$ helm rollback mydb 2
+$ helm rollback mydb 1
 
 $ helm history mydb
 $ kubectl get secret
 
 
+# Helm restore application after uninstalled
+$ helm uninstall mydb --keep-history
+$ helm ls (deleted the application)
+$ helm history mydb (still you can see the details)
+$ helm rollback mydb 3
+$ helm ls (see the application)
+
+
+# Helm create namespace and install application
+$ helm install mydb bitnami/mysql --namespace demo --create-namespace 
 
 
 
