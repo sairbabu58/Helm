@@ -62,7 +62,7 @@ $ helm status myapp
 
 
 
-# Helm template and dry-run
+# Helm template 
 get the yaml template and re-use it on k8s and openshift ENV for create your own application
 
 $ helm template mydb bitnami/mysql
