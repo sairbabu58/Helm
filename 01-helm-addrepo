@@ -70,12 +70,28 @@ $ helm template mydb bitnami/mysql --values /my-path/values.yaml
 
     
     
-    
-    
-    
-    
-    
-    
+# Helm get commands
+$ helm list
+$ helm get notes mydb
+$ helm get values mydb (it will show the custom values you have provided during the installation. like auth.rootPassword, image.pullPolicy ..etc)
+$ helm get values mydb --all (it will show the all default values as well as custom values )
+$ helm get values mydb --revision 1 (revision 1 values)
+$ helm get values mydb --revision 2 (revision 2 new changes values)
+$ helm get --help
+
+
+
+# Helm history commands
+$ helm history mydb (get the application details like: revision details, installation date, description: instaled/upgrade, if application failed due to any reason, )
+
+
+
+
+
+
+
+
+
     
     
 
