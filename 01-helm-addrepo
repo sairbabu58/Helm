@@ -31,7 +31,7 @@ $helm uninstall mydb -n namespace
 # Helm install with custom values
 $ helm install mydb bitnami/mysql --values /my-path/values.yaml
 
-before create values.yaml 
+before, create values.yaml (ref the details: https://github.com/bitnami/charts/blob/main/bitnami/mysql/values.yaml)
 $ vi values.yaml
   auth:
     rootPassword: "redhat"
