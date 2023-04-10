@@ -86,6 +86,19 @@ $ helm history mydb (get the application details like: revision details, install
 
 
 
+# Helm rollout
+$ helm ls
+$ helm list
+$ helm history mydb
+
+$ helm history mydb (get the version name 1 or 2 or 3)
+$ helm rollout mydb 2
+$ helm rollout mydb 1
+
+$ helm history mydb
+$ kubectl get secret
+
+
 
 
 
