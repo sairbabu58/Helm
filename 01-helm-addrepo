@@ -18,6 +18,8 @@ $ heml status mydb
 (get the above note details)
 $ helm install mydb bitnami/mysql -n namespace
 
+$ helm install mydb bitnami/mysql --dry-run
+$ helm install mydb bitnami/mysql --values /my-path/values.yaml --dry-run
 
 
 # Helm list and uninstall applications
