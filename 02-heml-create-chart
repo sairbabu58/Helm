@@ -14,11 +14,7 @@ $ helm package firstchart
 $ helm packkage firstchart -d (--destination) /my-path/
 
 # Helm lint (code validation)
-$ helm lint firstchart 
-
-
-
-
+$ helm lint firstchart
 
 
 
