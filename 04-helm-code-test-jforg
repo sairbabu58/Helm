@@ -1,4 +1,57 @@
-# 
+# Helm registry login, pull, push 
+https://artifacthub.io/packages/helm-plugin/push-artifactory-plugin/push-artifactory
 
 1) Create helm chart and push to jforg server
-2) Pull/download helm .tar file and push to 
+2) Pull/download helm chart .tar file from internet or official side
+3) Push helm chart .tgz file to jforg server
+4) Pull helm chart from jforg server and run your application 
+
+
+
+Process:
+-> create helm new sub repo under k8s-helm-lab directory
+ $ helm registry login https://jforg.example.com
+     username:
+     password:
+  $ helm repo add k8s https://jforg.example.com/k8s --username admin --password redhat #add the new repo on jforg server.
+     note: 1st jforg team need to create a helm repo on server k8s-helm-lab
+                                                               k8s-helm-dev
+                                                               k8s-helm-prod
+    out put of  helm repo add command :                        k8s-helm-lab/k8s
+                                                               k8s-helm-lab/ocp
+-> create your own helm chart
+   $ helm create my-app-01
+   $ tree my-app-01 (#if require, modify the file)
+   $ helm package my-app-01 (#it will create tgz file. my-app-01-0.1.0)
+
+-> download chart from internate
+example: 
+      $ helm repo list (# existing repo list and url details)
+      $ open the above url over browser and download the .tgz file
+      $ if above .tgz file having all the source code, please find the chart directory or any helm related dir and create package
+      $ go to the above helm or chart path execute below command
+      $ helm package <filename>
+
+-> Now .tgz file is ready, lets push to jforg server
+    $ helm plugin install https://github.com/belitre/helm-push-artifactory-plugin --version v0.3.0 (# Optional)
+    $ helm push-artifactory my-app-01-0.1.0.tgz https://jforg.example.com/k8s-helm-lab/k8s -u admin -p redhat
+    $ validation: open jforg server-> refresh page-> select your repo(k8s-helm-lab/k8s)-> my-app-01-> tgz file
+
+Note: https://jfrog.com/help/r/jfrog-artifactory-documentation/kubernetes-helm-chart-repositories
+
+-> Validate using helm cli
+    $ helm repo list
+    $ helm repo update
+    $ helm search --help
+    $ helm search repo
+    $ helm search repo | grep my-app-01
+
+Note: if is it not viable, please check with jforg admin team and get the permission
+
+-> Pulling helm chart and deploy application on k8s cluster
+    $ kc get no
+    $ kc create ns demo
+    $ helm install demo-app k8s-helm-lab/my-app-01 (#helm search repo. it will show the repo path)
+    $ kc get po -n demo
+
+                                                              
