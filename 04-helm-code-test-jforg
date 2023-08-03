@@ -37,6 +37,8 @@ example:
     $ helm push-artifactory my-app-01-0.1.0.tgz https://jforg.example.com/k8s-helm-lab/k8s -u admin -p redhat
     $ validation: open jforg server-> refresh page-> select your repo(k8s-helm-lab/k8s)-> my-app-01-> tgz file
 
+optional: curl -uadmin:redhat -T my-app-01-0.1.0 https://jforg.example.com/k8s-helm-lab/k8s
+
 Note: https://jfrog.com/help/r/jfrog-artifactory-documentation/kubernetes-helm-chart-repositories
 
 -> Validate using helm cli
