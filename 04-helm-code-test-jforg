@@ -13,12 +13,15 @@ Process:
  $ helm registry login https://jforg.example.com
      username:
      password:
-  $ helm repo add k8s https://jforg.example.com/k8s --username admin --password redhat #add the new repo on jforg server.
-     note: 1st jforg team need to create a helm repo on server k8s-helm-lab
-                                                               k8s-helm-dev
-                                                               k8s-helm-prod
-    out put of  helm repo add command :                        k8s-helm-lab/k8s
-                                                               k8s-helm-lab/ocp
+ $ helm repo add k8s https://jforg.example.com/k8s --username admin --password redhat #add the new repo on jforg server.
+     note: 1st jforg team need to create a helm repo on server: k8s-helm-lab
+                                                                k8s-helm-dev
+                                                                k8s-helm-prod
+    out put of  helm repo add command :                         k8s-helm-lab/k8s
+                                                                k8s-helm-lab/ocp
+ $ helm repo list 
+ $ helm repo update
+
 -> create your own helm chart
    $ helm create my-app-01
    $ tree my-app-01 (#if require, modify the file)
