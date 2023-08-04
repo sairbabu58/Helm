@@ -27,6 +27,10 @@ Process:
    $ tree my-app-01 (#if require, modify the file)
    $ helm package my-app-01 (#it will create tgz file. my-app-01-0.1.0)
 
+   $ helm lint file.tgz #validate whether all the codes are correct or not
+
+   $ helm package filename --version v2.0.2
+
 -> download chart from internate
 example: 
       $ helm repo list (# existing repo list and url details)
@@ -51,7 +55,7 @@ Note: https://jfrog.com/help/r/jfrog-artifactory-documentation/kubernetes-helm-c
     $ helm search repo
     $ helm search repo | grep my-app-01
 
-Note: if is it not viable, please check with jforg admin team and get the permission
+Note: if is it not visable, please check with jforg admin team and get the permission
 
 -> Pulling helm chart and deploy application on k8s cluster
     $ kc get no
