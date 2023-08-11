@@ -78,4 +78,54 @@ Note: if is it not visable, please check with jforg admin team and get the permi
 
 Process:
 1) manually add the helm repo and check the code whether everyting working as expected
-$ help 
+$ helm repo add cilium https://helm.cilium.io/
+$ helm install cilium cilium/cilium --namespace=kube-system
+$ helm repo list 
+2) get the helm url and repo name
+3) use those details over ansible playbook
+
+or
+
+1) search and get the helm repo url
+https://artifacthub.io/packages/helm/cilium/cilium
+2) use those details on ansible playbook
+
+
+Ansible playbook:
+$ ansible-doc kubernetes.core.helm_pull
+
+- name: Download helm chart for cilium
+  kubernetes.core.helm_pull:
+    chart_ref: cilium
+    repo_url: https://helm.cilium.io/
+    untar_chart: no
+    destination: /root/helm-repo
+    skip_tls_certs_check: yes
+
+
+- name: Download helm chart for redis
+  kubernetes.core.helm_pull:
+    chart_ref: redis
+    repo_url: https://charts.bitnami.com/bitnami
+    untar_chart: no
+    destination: /root/helm-repo
+    skip_tls_certs_check: yes
+
+- name: Download helm chart for ingress
+  kubernetes.core.helm_pull:
+    chart_ref: ingress-nginx
+    repo_url: https://kubernetes.github.io/ingress-nginx
+    untar_chart: no
+    destination: /root/helm-repo
+    skip_tls_certs_check: yes
+
+
+# now download the helm chart .tar.gz file
+# then push helm chart .tar.gz file to jforg server 
+
+
+
+
+
+
+
