@@ -124,7 +124,14 @@ $ ansible-doc kubernetes.core.helm_pull
 # then push helm chart .tar.gz file to jforg server 
 
 
-
+Note: adding repo url name is very trick work. always get the exactly chart name using below process.
+$ manually add the helm repo
+$ helm repo add netapp https://netapp.github.io/trident-helm-chart
+$ helm repo list
+$ helm repo update
+$ helm search repo netapp
+$ here you will get exactly chart name netapp-trident or netapp-operator or anything else.
+So please copy the right name from here and use same chart name and repo url on ansible playbook and pull the .tar.gz helm chart
 
 
 
