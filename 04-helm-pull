@@ -63,4 +63,19 @@ Note: if is it not visable, please check with jforg admin team and get the permi
     $ helm install demo-app k8s-helm-lab/my-app-01 (#helm search repo. it will show the repo path)
     $ kc get po -n demo
 
-                                                              
+
+
+
+
+#Ansible automation for pull helm chart from internet
+
+1) get the right path for helm chart
+2) test the chart localy
+3) get the chart .tar.gz file
+4) download the .tar.gz file to your localmachine
+5) push the helm chart .tar.gz file
+6) test the code and run the application
+
+Process:
+1) manually add the helm repo and check the code whether everyting working as expected
+$ help 
