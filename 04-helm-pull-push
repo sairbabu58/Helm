@@ -13,6 +13,8 @@ Process:
  $ helm registry login https://jforg.example.com
      username:
      password:
+
+(optional)
  $ helm repo add k8s https://jforg.example.com/k8s --username admin --password redhat #add the new repo on jforg server.
      note: 1st jforg team need to create a helm repo on server: k8s-helm-lab
                                                                 k8s-helm-dev
@@ -90,6 +92,7 @@ or
 https://artifacthub.io/packages/helm/cilium/cilium
 2) use those details on ansible playbook
 
+==============================================
 
 Ansible playbook:
 $ ansible-doc kubernetes.core.helm_pull
