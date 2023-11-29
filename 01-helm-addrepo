@@ -122,3 +122,13 @@ $ helm upgrade --install mydb bitnami/mysql
 $ helm install myapache bitnami/apache --wait --timeout 10m20s (it is important if your ENV is taking much time to pull the image to create application)
 $ helm install myapache bitnami/apache --automic (during time period if its got failed, it will rollback the version)
 
+
+
+#How to check application available version
+$ helm repo add test <reponame>
+$ helm repo list
+$ helm search repo test --version 1.23.0 (available version)
+$ helm search repo test --version 1.23.1 (Not available version)
+
+
+
