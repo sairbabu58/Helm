@@ -9,3 +9,6 @@ https://bitnami.com/stacks/helm
 #Bitnami charts directory 
 https://github.com/bitnami/charts/ (click-> bitnami)
 
+#helm-push-artifactory-plugin cmd/binary installation
+https://github.com/belitre/helm-push-artifactory-plugin
+
