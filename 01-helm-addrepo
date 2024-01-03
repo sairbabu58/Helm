@@ -132,7 +132,7 @@ $ helm search repo test --version 1.23.1 (Not available version)
 
 
 
-##############
+#############################
 
 $ helm repo list
 $ helm repo add do280-repo  http://helm.ocp4.example.com/charts
