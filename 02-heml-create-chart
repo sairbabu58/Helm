@@ -16,6 +16,15 @@ $ helm packkage firstchart -d (--destination) /my-path/
 # Helm lint (code validation)
 $ helm lint firstchart
 
+###########
+
+$ helm create my-demo-app
+$ tree my-demo-app
+$ helm show chart my-demo-app
+$ helm show values my-demo-app
+$ helm show all my-demo-app
+$ helm show --help
+
 
 
 
