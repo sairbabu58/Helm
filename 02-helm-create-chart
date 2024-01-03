@@ -25,6 +25,15 @@ $ helm show values my-demo-app
 $ helm show all my-demo-app
 $ helm show --help
 
+§ helm install demo-app my-demo-app 
+$ helm install release-name chart-reference --dry-run  --values values.yaml
+$ helm install demo-v1 my-demo-app --dry-run  --values values.yaml
+
+$ helm list
+$ helm history release_name
+$ helm rollback release_name revision
+
+
 
 
 
