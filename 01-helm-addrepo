@@ -132,3 +132,47 @@ $ helm search repo test --version 1.23.1 (Not available version)
 
 
 
+##############
+
+$ helm repo list
+$ helm repo add do280-repo  http://helm.ocp4.example.com/charts
+$ helm repo list 
+$ helm search repo 
+$ helm search repo --versions
+
+$ helm show values do280-repo/etherpad 
+$ helm show values do280-repo/etherpad --version 0.0.6
+
+$ vi values.yaml (Over write the default values.yaml file)
+image:
+  repository: registry.ocp4.example.com:8443/etherpad
+  name: etherpad
+  tag: 1.8.18
+route:
+  host: development-etherpad.apps.ocp4.example.com
+
+$ helm install example-app do280-repo/etherpad  -f values.yaml --version 0.0.6
+$ oc get po
+$ oc get route 
+
+$ helm list
+$ helm search repo --versions
+
+$ helm upgrade example-app do280-repo/etherpad  -f values.yaml --version 0.0.7 (Upgrade the Application Version from 0.0.6 to 0.0.7)
+
+$ vi values.yaml
+...
+replicaCount: 3
+...
+
+$ helm upgrade example-app do280-repo/etherpad  -f values.yaml  (Update the configuration changes)
+$ oc get po 
+
+
+
+
+
+
+
+
+
