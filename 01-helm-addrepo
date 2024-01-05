@@ -1,6 +1,6 @@
 # Helm repo add and remove
-$ help repo lis
-$ help add repo bitnami https://charts.bitnami.com/bitnami
+$ helm repo list
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo list
 $ helm repo remove bitnami
 
