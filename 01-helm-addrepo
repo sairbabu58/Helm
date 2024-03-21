@@ -140,6 +140,8 @@ $ helm repo list
 $ helm search repo 
 $ helm search repo --versions
 
+$ helm search hub
+
 $ helm show values do280-repo/etherpad 
 $ helm show values do280-repo/etherpad --version 0.0.6
 
