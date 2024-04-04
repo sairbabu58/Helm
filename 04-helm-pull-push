@@ -137,5 +137,93 @@ $ here you will get exactly chart name netapp-trident or netapp-operator or anyt
 So please copy the right name from here and use same chart name and repo url on ansible playbook and pull the .tar.gz helm chart
 
 
+###############################
 
+New Code: Ansible playbook.
+
+
+
+
+$ cat helm-chart.yaml 
+---
+#Helm Charts Pulling from Internet
+#
+
+- include_vars:
+    file: vars.yaml
+    name: helm_chart
+
+- name: create a local directory
+  ansible.builtin.file:
+    path: $HOME/repodir/{{ item.chart_name }}
+    state: directory
+  with_items:
+    - "{{ helm_chart.helm_charts }}"
+
+- name: Download  helm chart
+  kubernetes.core.helm_pull:
+    chart_ref: "{{ item.chart_name }}"
+    repo_url: "{{ item.helm_url }}"
+    chart_version: "{{ item.chart_version }}"
+    untar_chart: no
+    destination: $HOME/repodir/{{ item.chart_name }}
+    skip_tls_certs_check: yes
+  with_items:
+    - "{{ helm_chart.helm_charts }}"
+
+#Helm Chart push to Artifactory
+#
+
+#- name: Find files in the directory
+#  ansible.builtin.find:
+#    paths: $HOME/repodir/
+#    patterns: "*.tgz"
+#    file_type: file
+#    recurse: yes
+#  register: found_files
+
+#- name: setfact
+#  ansible.builtin.set_fact:
+#    file_names:  "{{ found_files.files | map(attribute='path') | map('basename') | join (' ')  }}"
+
+#- name: Display filenames as debug output
+#  ansible.builtin.debug:
+#    var: file_names
+
+- name: Configure platform
+  ansible.builtin.shell: jf config add artifactory  --url  https://artifactory.j2c.com/ --user "{{ username }}" --password "{{ password }}" --interactive=false
+  ignore_errors: true
+
+- name: Push helm chart to jfrog server
+  ansible.builtin.shell:
+     cmd: jf rt u {{ item.chart_name }}/  helm-{{ env }}-virtual/ckp/
+     chdir: $HOME/repodir/
+  with_items: 
+    - "{{ helm_chart.helm_charts }}"
+  ignore_errors: true
+
+- name: delete the local directory
+  ansible.builtin.file:
+    path: $HOME/repodir
+    state: absent
+
+- name: Remove platform
+  ansible.builtin.shell: jf config rm artifactory --quiet
+
+....
+
+$ vi vars.yaml
+
+helm_charts:
+  - chart_name: cilium
+    helm_url: https://helm.cilium.io/
+    chart_version: "{{ cilium_chart_version }}"
+  - chart_name: argo-cd
+    helm_url: https://argoproj.github.io/argo-helm
+    chart_version: "{{ argocd_chart_version }}"
+  - chart_name: cert-manager
+    helm_url: https://charts.jetstack.io
+    chart_version: "{{ cert_manager_chart_version }}"
+
+........
 
