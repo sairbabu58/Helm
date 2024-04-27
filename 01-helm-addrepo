@@ -197,6 +197,14 @@ $helm rollback nginx 1
 $ helm list 
 
 
+......
+
+$ helm repo add openshift-helm-charts https://charts.openshift.io/
+$ helm search repo openshift-helm-charts
+$ helm pull openshift-helm-charts/redhat-quarkus --untar --destination redhat-quarkus
+$ helm pull openshift-helm-charts/redhat-quarkus 
+
+
 
 
 
