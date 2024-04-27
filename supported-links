@@ -6,6 +6,9 @@ https://helm.sh/docs/intro/install/
 https://artifacthub.io/
 https://bitnami.com/stacks/helm
 
+Redhat Repo
+https://charts.openshift.io  
+
 #Bitnami charts directory 
 https://github.com/bitnami/charts/ (click-> bitnami)
 
