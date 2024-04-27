@@ -207,9 +207,9 @@ $ helm pull openshift-helm-charts/redhat-quarkus
 Check the syntax 
 $ helm template -s templates/expense-deployment.yaml .
 $ helm template -s templates/expense-route.yaml .
-
-
 $ helm install --wait expense-service .
+$ helm list 
+$ helm get all <name>
 
 
 
