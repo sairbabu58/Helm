@@ -204,6 +204,13 @@ $ helm search repo openshift-helm-charts
 $ helm pull openshift-helm-charts/redhat-quarkus --untar --destination redhat-quarkus
 $ helm pull openshift-helm-charts/redhat-quarkus 
 
+Check the syntax 
+$ helm template -s templates/expense-deployment.yaml .
+$ helm template -s templates/expense-route.yaml .
+
+
+$ helm install --wait expense-service .
+
 
 
 
