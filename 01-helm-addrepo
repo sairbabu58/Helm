@@ -9,7 +9,7 @@ $ helm repo remove bitnami
 $ helm search mysql
 $ helm search nginx
 $ helm search nginx --version
-$ helm search repo --version
+$ helm search repo --versions
 
 
 # Helm install application
