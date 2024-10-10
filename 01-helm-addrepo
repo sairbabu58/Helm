@@ -219,7 +219,7 @@ $ helm create demo-app
 $ cd  demo-app
 $ helm template --skip-tests  .
 $ helm template --skip-tests  . > app.yaml 
-$ oc applf -f app.yaml 
+$ oc apply -f app.yaml 
 
 
 
@@ -228,6 +228,17 @@ $ oc applf -f app.yaml
 
 
 $ helm get notes my-grafana -n monitoring (get the info )
+
+
+....
+
+How to get all the helm application deployment code.
+
+$ helm list -A
+$ helm get manifest nfs-storage -n nfs-storage
+
+....
+
 
 
 
