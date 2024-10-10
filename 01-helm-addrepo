@@ -3,6 +3,7 @@ $ helm repo list
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo remove bitnami
 
+...
 
 # Helm search application
 $ helm search mysql
@@ -10,6 +11,7 @@ $ helm search nginx
 $ helm search nginx --version
 $ helm search repo do280-helm --versions
 
+...
 
 # Helm install application
 $ helm install mydb bitnami/mysql
@@ -21,6 +23,7 @@ $ helm install mydb bitnami/mysql -n namespace
 $ helm install mydb bitnami/mysql --dry-run
 $ helm install mydb bitnami/mysql --values /my-path/values.yaml --dry-run
 
+...
 
 # Helm list and uninstall applications
 $ helm list 
@@ -28,7 +31,7 @@ $ helm list -n namespace
 $ helm uninstall mydb
 $ helm uninstall mydb -n namespace
 
-
+...
 
 # Helm install with custom values
 $ helm install mydb bitnami/mysql --values /my-path/values.yaml
@@ -43,6 +46,7 @@ $ vi values.yaml
 # Helm repo update
 $ helm repo update 
 
+...
 
 # Helm application update
 $ helm list
@@ -61,15 +65,24 @@ $ helm list
 $ helm status myapp 
 (it will show the revision:2 \\ earlier the was revision: 1, now the is revision: 2 \\ using this revision we can rollout the application \\ revision data is available in side of secret on the same namespace)
 
-
+...
 
 # Helm template 
-get the yaml template and re-use it on k8s and openshift ENV for create your own application
+# get application code before deploy the application
+# get the yaml template and re-use it on k8s and openshift ENV for create your own application
 
 $ helm repo list
 $ helm template j2c-repo/mysql
 $ helm template bitnami/mysql --values /my-path/values.yaml 
 
+...
+
+# How to get all the helm application deployment code.
+# Get application code after deployed your application. how this app got deployed with all the resources
+$ helm list -A
+$ helm get manifest nfs-storage -n nfs-storage
+
+....
     
     
 # Helm get commands
