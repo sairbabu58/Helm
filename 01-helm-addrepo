@@ -1,7 +1,6 @@
 # Helm repo add and remove
 $ helm repo list
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
-$ helm repo list
 $ helm repo remove bitnami
 
 
@@ -9,7 +8,7 @@ $ helm repo remove bitnami
 $ helm search mysql
 $ helm search nginx
 $ helm search nginx --version
-$ helm search repo --versions
+$ helm search repo do280-helm --versions
 
 
 # Helm install application
@@ -67,8 +66,9 @@ $ helm status myapp
 # Helm template 
 get the yaml template and re-use it on k8s and openshift ENV for create your own application
 
-$ helm template mydb bitnami/mysql
-$ helm template mydb bitnami/mysql --values /my-path/values.yaml 
+$ helm repo list
+$ helm template j2c-repo/mysql
+$ helm template bitnami/mysql --values /my-path/values.yaml 
 
     
     
