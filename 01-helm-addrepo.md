@@ -278,8 +278,6 @@ $ oc apply -f app.yaml
 
 
 ```
-
-
 $ helm get notes my-grafana -n monitoring (get the info )
 ```
 
