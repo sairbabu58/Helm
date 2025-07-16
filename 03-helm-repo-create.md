@@ -1,6 +1,6 @@
 # Create your own helm repo and install the application
 
-** from github, create a repo 'helmrepo'**
+**from github, create a repo 'helmrepo'**
 
 **clone the url to your local machine**
 ```
