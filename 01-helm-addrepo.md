@@ -267,7 +267,7 @@ $ helm get all <name>
 
 
 
-``
+```
 $ helm create demo-app
 $ cd  demo-app
 $ helm template --skip-tests  .
